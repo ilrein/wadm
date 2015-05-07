@@ -1,0 +1,40 @@
+<template name="home">
+  {{#contentFor "headerButtonLeft"}} 
+    <button data-ion-menu-toggle="left" class="button button-clear">
+      <i class="fa fa-bars"></i>
+    </button>
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}} 
+    <h1 class="title title-center">WADM</h1>
+  {{/contentFor}} 
+
+  {{#contentFor "headerButtonRight"}}
+    {{!-- <button class="button button-clear" data-ion-popover="_myPopover">
+      {{#if isAndroid}}
+        {{> ionIcon icon='android-more-vertical'}}
+      {{else}}
+        {{> ionIcon icon='more'}}
+      {{/if}}
+    </button> --}}
+    {{#if currentUser}}
+      <p class="title title-right pull-right">
+        {{currentUser.profile.name}}
+        <a href="#"><i data-logout style="color: #FF7B7B" class="fa fa-times"></i></a>
+      </p>
+    {{/if}} 
+
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div id="homeTransition" class="padding">
+         {{#if currentUser}}
+          {{> main}}
+         {{else}}
+            {{> loginButtons}}
+         {{/if}}
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

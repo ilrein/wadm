@@ -1,0 +1,47 @@
+<template name="applicationLayout">
+  {{#ionBody}}
+
+    {{#ionSideMenuContainer side="left"}}
+
+      {{#ionSideMenus}}
+
+        {{#ionSideMenu}}
+          <div class="bar bar-header">
+            <h1 class="title">Options</h1>
+          </div>
+          <div class="content has-header">
+            <div class="list">
+              
+              <a data-ion-menu-close href="{{pathFor 'home'}}">
+                <div class="item item-icon-right">
+                  {{> ionIcon icon="ios-arrow-right"}} Home
+                </div>
+              </a>
+
+              <a data-ion-menu-close href="{{pathFor 'new'}}">
+                <div class="item item-icon-right">
+                  {{> ionIcon icon="ios-arrow-right"}} New
+                </div>
+              </a>
+
+            </div>
+          </div>
+        {{/ionSideMenu}}
+
+      {{/ionSideMenus}}
+
+      {{#ionSideMenuContent}}
+
+        {{> ionNavBar}}
+
+        {{#ionNavView}}
+          {{> yield}}
+        {{/ionNavView}}
+
+      {{/ionSideMenuContent}}
+
+    {{/ionSideMenuContainer}}
+
+  {{/ionBody}}
+</template>
+
