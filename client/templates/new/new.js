@@ -55,27 +55,31 @@ Template.new.events({
     decision = {};
     decision.owner = Meteor.userId();
     decision.title = $('input[name="title"]').val();
-    decision.createdOn = moment().format("MMM Do YYYY");
+    decision.createdOn = moment().format("'MMMM Do YYYY, h:mm:ss a");
 
-        // do we need a field which tracks whether a decision was weighed?
+    // do we need a field which tracks whether a decision was weighed?
 
-        // decision.concluded = false;
+    // decision.concluded = false;
 
-        $.each(factors, function( index, item ){
+    $.each(factors, function( index, item ){
 
       // make sure index starts at 1
 
       index++;
+      
       var property = "factor" + index + "";
 
       // need the factor name + weighting rank
 
-      var factorName = $(item).children().first().children('input').val();
-      var weightingRank = $(item).children().eq(1).children('input').val();
+      var factorName = $(item).children().first().children().first().children('input').val();
+      var weightingRank = $(item).children().eq(1).children().first().children('input').val();
+
+      var firstOptionScore = $(item).children().eq(1).children().first().children('input').val();
+      var secondOptionScore = $(item).children().eq(1).children().eq(1).children('input').val();
 
       // dynamically add "factor[index]" for each fieldset
 
-      decision[property] = [factorName, weightingRank];
+      // save data how I want it:  decision[property] = { factorName, weightingRank };
 
     });
 
@@ -92,7 +96,9 @@ function showFormErrors() {
   if (error.length == 0) {
     $('.twelve.wide.column').append('<div style="top: 500px" id="formError" class="ui red message">Please enter a Title, First Option & Second Option</div>');
     $('#formError').velocity({ top: 0 }, { duration: 600 });
-  } 
+  } else {
+    error.transition('shake');
+  }
 }
 
 function clearFormErrors() {

@@ -7,7 +7,7 @@ Template.main.helpers({
     return Decisions.find({}).count();
   },
   "decision": function() {
-    return Decisions.find({});
+    return Decisions.find({}, { sort: { createdOn: -1 } });
   }
 });
 
