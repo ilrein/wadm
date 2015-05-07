@@ -90,7 +90,8 @@ Template.new.events({
 function showFormErrors() {
   var error = $('#formError');
   if (error.length == 0) {
-    $('.twelve.wide.column').append('<div id="formError" class="ui red message">Please enter a Title, First Option & Second Option</div>')
+    $('.twelve.wide.column').append('<div style="opacity: 0; top: 500px" id="formError" class="ui red message">Please enter a Title, First Option & Second Option</div>');
+    $('#formError').velocity({ opacity: 1, top: 0 }, { duration: 900 });
   } 
 }
 
