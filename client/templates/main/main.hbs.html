@@ -34,19 +34,19 @@
 
     {{#ionList}}
 
-    {{#each decision}}
+      {{#each decision}}
 
-    {{#ionItem buttonRight=true avatar=false}}
-    
-    <h2>{{title}}</h2>
-    <p>
-      Undecided
-    </p>
-    <button class="ui button">Details</button>
+        {{#ionItem buttonRight=true avatar=false}}
+        
+          <h2>{{title}}</h2>
+          <p>
+            Undecided
+          </p>
+          <button data-show-decision class="ui button">Details</button>
 
-    {{/ionItem}}
+        {{/ionItem}}
 
-    {{/each}}
+      {{/each}}
 
     {{/ionList}}
     

@@ -16,5 +16,11 @@ Template.main.events({
     $('.grid').velocity("transition.swoopOut", function(){
       Router.go('/new');
     });
+  },
+  'click [data-show-decision]': function( e, tpl ) {
+    var self = this;
+    $('.grid').velocity("transition.swoopOut", function(){
+      Router.go('/show/' + self._id);
+    });
   }
 })

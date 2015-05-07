@@ -1,4 +1,4 @@
-<template name="home">
+<template name="authenticate">
   {{#contentFor "headerButtonLeft"}} 
     <button data-ion-menu-toggle="left" class="button button-clear">
       <i class="fa fa-bars"></i>
@@ -21,8 +21,8 @@
 
   {{#ionView}}
     {{#ionContent}}
-      <div id="homeTransition" class="padding">
-        {{> main}}
+      <div id="authenticateTransition" class="padding">
+        {{> loginButtons}}
       </div>
     {{/ionContent}}
   {{/ionView}}
