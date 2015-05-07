@@ -1,0 +1,55 @@
+<template name="main">
+  {{#if Template.subscriptionsReady}}
+  <div class="ui grid">
+    <div class="row"><br>
+      <div class="two wide column"></div>  
+      <div class="twelve wide center aligned column">
+        <div class="ui grid">
+          <div class="center aligned row">
+            <div class="sixteen wide column">
+              <div class="ui statistic">
+                <div class="value">
+                  {{totalDecisions}}
+                </div>  
+                <div class="label">
+                  Decision Matrix Formed
+                </div>  
+              </div>  
+            </div>  
+            {{!-- <div class="eight wide column">
+              <div class="ui statistic">
+                <div class="value">
+                  0
+                </div>  
+                <div class="label">
+                  Calculated Decisions Made
+                </div>
+              </div>  
+            </div>   --}}
+          </div>
+        </div>
+      </div>  
+      <div class="two wide column"></div>  
+    </div><br>
+
+    {{#ionList}}
+
+      {{#each decision}}
+
+        {{#ionItem buttonRight=true avatar=false}}
+        
+          <h2>{{title}}</h2>
+          <p>
+            Undecided
+          </p>
+          <button data-show-decision class="ui button">Details</button>
+
+        {{/ionItem}}
+
+      {{/each}}
+
+    {{/ionList}}
+    
+  </div>
+  {{/if}}
+</template>

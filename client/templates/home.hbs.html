@@ -1,0 +1,29 @@
+<template name="home">
+  {{#contentFor "headerButtonLeft"}} 
+    <button data-ion-menu-toggle="left" class="button button-clear">
+      <i class="fa fa-bars"></i>
+    </button>
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}} 
+    <h1 class="title title-center">WADM</h1>
+  {{/contentFor}} 
+
+  {{#contentFor "headerButtonRight"}}
+    {{#if currentUser}}
+      <p class="title title-right pull-right">
+        {{currentUser.profile.name}}
+        <a href="#"><i data-logout style="color: #FF7B7B" class="fa fa-times"></i></a>
+      </p>
+    {{/if}} 
+
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div id="homeTransition" class="padding">
+        {{> main}}
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>
