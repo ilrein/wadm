@@ -13,7 +13,47 @@ Template.main.helpers({
       return "Decision Matrix Formed"
     }
   },
+  'theBetterOption': function() {
+    var data = Blaze.getData(),
+        firstOptionPoints = [],
+        firstTotal = 0,
+        secondOptionPoints = [],
+        secondTotal = 0;
 
+    $.each( data.factors, function( index, item ){
+      var weight    = item.weight,
+          optionOne = item.firstOptionScore,
+          optionTwo = item.secondOptionScore;
+
+      optionOne = optionOne * weight;
+      firstOptionPoints.push(optionOne);
+
+      optionTwo = optionTwo * weight;
+      secondOptionPoints.push(optionTwo);
+    });
+
+    $.each( firstOptionPoints, function(){
+      firstTotal += this;
+    });
+
+    $.each( secondOptionPoints, function(){
+      secondTotal += this;
+    });
+
+    if ( firstTotal > secondTotal ) {
+      return {
+        winner: data.firstOption,
+        loser: data.secondOption 
+      } 
+    } else if ( firstTotal < secondTotal ) {
+      return {
+        winner: data.secondOption,
+        loser: data.firstOption
+      } 
+    } else {
+      return "Both options score equally"
+    }
+  },
   "decision": function() {
     return Decisions.find({}, { sort: { createdOn: -1 } });
   }

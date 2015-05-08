@@ -39,8 +39,9 @@
         {{#ionItem buttonRight=true avatar=false}}
         
           <h2>{{title}}</h2>
-          <p>
-            content
+          <p style="color: #32B969;">
+            {{theBetterOption.winner}}
+            <span style="color: #B2B2B2;"> is a better option than <span style="color: #E64C71;">{{theBetterOption.loser}}</span>.</span>
           </p>
           <button data-show-decision class="ui yellow button">Modify</button>
 

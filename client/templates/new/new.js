@@ -12,8 +12,8 @@ Template.new.events({
 
     // lets validate that title/first/second option are all set
     var title = $('input[name="title"]').val(),
-        firstoption = $('input[name="firstoption"]').val(),
-        secondoption = $('input[name="secondoption"]').val();
+    firstoption = $('input[name="firstoption"]').val(),
+    secondoption = $('input[name="secondoption"]').val();
 
     if (title && firstoption && secondoption) {
       executeEvents();
@@ -52,13 +52,13 @@ Template.new.events({
     
     var factors = $('.ui.segment'),
     size = factors.length,
-    decision = {
-      factors: {}
-    };
+    decision = { factors: {} };
 
     decision.owner = Meteor.userId();
     decision.title = $('input[name="title"]').val();
     decision.createdOn = moment().format("MMMM Do YYYY, h:mm:ss a");
+    decision.firstOption = $('input[name="firstoption"]').val();
+    decision.secondOption = $('input[name="secondoption"]').val();
 
     // do we need a field which tracks whether a decision was weighed?
 
@@ -75,6 +75,8 @@ Template.new.events({
       var factorName = $(item).children().first().children().first().children('input').val();
       var weightingRank = $(item).children().eq(1).children().first().children('input').val();
 
+      // the actual scores for both options
+
       var firstOptionScore = $(item).children().eq(1).children().first().children('input').val();
       var secondOptionScore = $(item).children().eq(1).children().eq(1).children('input').val();
 
@@ -83,22 +85,20 @@ Template.new.events({
       var sanity = String(index);
 
       decision.factors[sanity] = {
-        // item: {
-          title: factorName, 
-          weight: weightingRank,
-          firstOptionScore: firstOptionScore,
-          secondOptionScore: secondOptionScore   
-        // }
+        title: factorName, 
+        weight: weightingRank,
+        firstOptionScore: firstOptionScore,
+        secondOptionScore: secondOptionScore
       };
 
     });
 
-      Decisions.insert(decision, function( err, id ){
-        if (!err) {
-          Router.go("/");  
-        }
-      });
-    }
+    Decisions.insert(decision, function( err, id ){
+      if (!err) {
+        Router.go("/");  
+      }
+    });
+  }
 })
 
 function showFormErrors() {
@@ -113,14 +113,14 @@ function showFormErrors() {
 
 function clearFormErrors() {
    // remove warning message if it exists
-    var error = $('#formError');
-    if (error) {
-      error.remove();
-    }
+   var error = $('#formError');
+   if (error) {
+    error.remove();
+  }
 }
 
 function executeEvents() {
-   
+
 
     // visually change the remove factor button if there are no factor fields
 
@@ -152,4 +152,4 @@ function executeEvents() {
 
     // increment the counter everytime we add a field
     counter++; 
-}
+  }
