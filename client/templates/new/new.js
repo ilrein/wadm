@@ -52,10 +52,13 @@ Template.new.events({
     
     var factors = $('.ui.segment'),
     size = factors.length,
-    decision = {};
+    decision = {
+      factors: {}
+    };
+
     decision.owner = Meteor.userId();
     decision.title = $('input[name="title"]').val();
-    decision.createdOn = moment().format("'MMMM Do YYYY, h:mm:ss a");
+    decision.createdOn = moment().format("MMMM Do YYYY, h:mm:ss a");
 
     // do we need a field which tracks whether a decision was weighed?
 
@@ -67,8 +70,6 @@ Template.new.events({
 
       index++;
       
-      var property = "factor" + index + "";
-
       // need the factor name + weighting rank
 
       var factorName = $(item).children().first().children().first().children('input').val();
@@ -77,9 +78,18 @@ Template.new.events({
       var firstOptionScore = $(item).children().eq(1).children().first().children('input').val();
       var secondOptionScore = $(item).children().eq(1).children().eq(1).children('input').val();
 
-      // dynamically add "factor[index]" for each fieldset
+      // format the data so I call #each on factors
 
-      // save data how I want it:  decision[property] = { factorName, weightingRank };
+      var sanity = String(index);
+
+      decision.factors[sanity] = {
+        // item: {
+          title: factorName, 
+          weight: weightingRank,
+          firstOptionScore: firstOptionScore,
+          secondOptionScore: secondOptionScore   
+        // }
+      };
 
     });
 

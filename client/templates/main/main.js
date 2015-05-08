@@ -6,6 +6,14 @@ Template.main.helpers({
   'totalDecisions': function() {
     return Decisions.find({}).count();
   },
+  'totalDecisionsText': function() {
+    if (Decisions.find({}).count() > 1) {
+      return "Decision Matrices Formed"
+    } else {
+      return "Decision Matrix Formed"
+    }
+  },
+
   "decision": function() {
     return Decisions.find({}, { sort: { createdOn: -1 } });
   }
