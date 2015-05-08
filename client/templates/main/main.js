@@ -42,16 +42,21 @@ Template.main.helpers({
 
     if ( firstTotal > secondTotal ) {
       return {
+        result: true,
         winner: data.firstOption,
         loser: data.secondOption 
       } 
     } else if ( firstTotal < secondTotal ) {
       return {
+        result: true,
         winner: data.secondOption,
         loser: data.firstOption
       } 
     } else {
-      return "Both options score equally"
+      return {
+        result: false,
+        tie: "Both options score equally" 
+      } 
     }
   },
   "decision": function() {

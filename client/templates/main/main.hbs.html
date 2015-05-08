@@ -39,9 +39,13 @@
         {{#ionItem buttonRight=true avatar=false}}
         
           <h2>{{title}}</h2>
-          <p style="color: #32B969;">
+          <p class="result-wrapper">
+          {{#if theBetterOption.result}}
             {{theBetterOption.winner}}
-            <span style="color: #B2B2B2;"> is a better option than <span style="color: #E64C71;">{{theBetterOption.loser}}</span>.</span>
+            <span> is a better option than <span>{{theBetterOption.loser}}</span></span>
+          {{else}}
+            {{theBetterOption.tie}}
+          {{/if}}
           </p>
           <button data-show-decision class="ui yellow button">Modify</button>
 
