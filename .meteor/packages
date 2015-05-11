@@ -12,7 +12,6 @@ meteoric:ionicons-sass
 meteoric:ionic
 semantic:ui-css
 service-configuration
-accounts-twitter
 msavin:mongol
 fortawesome:fontawesome
 velocityjs:velocityjs
@@ -24,3 +23,6 @@ momentjs:moment
 accounts-password
 useraccounts:core
 useraccounts:ionic
+accounts-ui
+accounts-facebook
+accounts-twitter

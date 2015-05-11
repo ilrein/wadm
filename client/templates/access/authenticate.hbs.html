@@ -13,7 +13,7 @@
     {{#if currentUser}}
       <p class="title title-right pull-right">
         {{currentUser.profile.name}}
-        <a href="#"><i data-logout style="color: #FF7B7B" class="fa fa-times"></i></a>
+        <i data-logout style="color: #FF7B7B" class="fa fa-times"></i>
       </p>
     {{/if}} 
 
@@ -22,16 +22,7 @@
   {{#ionView}}
     {{#ionContent}}
     <div id="authenticateTransition" class="padding">
-      {{!-- <div class="ui grid">
-        <div class="row">
-        <div class="one wide column"></div>  
-          <div class="center aligned fourteen wide column">
-            
-          </div>  
-          <div class="one wide column"></div>  
-        </div>
-      </div> --}}
-      {{> atForm}}    
+      {{> atForm}}
     </div>  
     {{/ionContent}}
   {{/ionView}}
