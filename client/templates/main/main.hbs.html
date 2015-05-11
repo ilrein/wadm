@@ -44,7 +44,9 @@
             {{theBetterOption.winner}}
             <span> is a better option than <span>{{theBetterOption.loser}}</span></span>
           {{else}}
+          <span class="mist">
             {{theBetterOption.tie}}
+          </span>
           {{/if}}
           </p>
           <button data-show-decision class="ui yellow button">Modify</button>

@@ -13,7 +13,6 @@ meteoric:ionic
 semantic:ui-css
 service-configuration
 accounts-twitter
-accounts-ui
 msavin:mongol
 fortawesome:fontawesome
 velocityjs:velocityjs
@@ -22,3 +21,6 @@ aldeed:collection2
 aldeed:autoform
 digilord:sugarjs
 momentjs:moment
+accounts-password
+useraccounts:core
+useraccounts:ionic

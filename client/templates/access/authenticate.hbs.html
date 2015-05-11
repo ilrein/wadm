@@ -21,9 +21,18 @@
 
   {{#ionView}}
     {{#ionContent}}
-      <div id="authenticateTransition" class="padding">
-        {{> loginButtons}}
-      </div>
+    <div id="authenticateTransition" class="padding">
+      {{!-- <div class="ui grid">
+        <div class="row">
+        <div class="one wide column"></div>  
+          <div class="center aligned fourteen wide column">
+            
+          </div>  
+          <div class="one wide column"></div>  
+        </div>
+      </div> --}}
+      {{> atForm}}    
+    </div>  
     {{/ionContent}}
   {{/ionView}}
 </template>
